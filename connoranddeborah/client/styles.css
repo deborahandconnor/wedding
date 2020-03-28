@@ -1,11 +1,11 @@
 @charset "UTF-8";
 @font-face {
   font-family: "Cormorant Garamond";
-  src: url("/CormorantGaramond-LightItalic.ttf") format("truetype");
+  src: url("/connoranddeborah/CormorantGaramond-LightItalic.ttf") format("truetype");
 }
 @font-face {
   font-family: "Lato";
-  src: url("/Lato-Regular.ttf") format("truetype");
+  src: url("/connoranddeborah/Lato-Regular.ttf") format("truetype");
 }
 :root {
   --pink: #F2D5DB;
