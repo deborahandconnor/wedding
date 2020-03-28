@@ -1,0 +1,72 @@
+@font-face {
+    font-family: 'Cormorant Garamond';
+    src: url('/CormorantGaramond-LightItalic.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('/Lato-Regular.ttf') format("truetype");
+}
+
+$pink: #F2D5DB;
+$green: #98A68F;
+$dark: #262626;
+$light: #F2F2F2;
+$yellow: #F2EDDC;
+
+:root {
+    --pink: #{$pink};
+    --green: #{$green};
+    --yellow: #{$yellow};
+    --dark: #{$dark};
+    --light: #{$light};
+    --pink-s: #{rgba($pink, 0.7)};
+    --pink-f: #{rgba($pink, 0.5)};
+    --pink-t: #{rgba($pink, 0.2)};
+    --green-s: #{rgba($green, 0.7)};
+    --green-f: #{rgba($green, 0.5)};
+    --green-t: #{rgba($green, 0.2)};
+    --yellow-s: #{rgba($yellow, 0.7)};
+    --yellow-f: #{rgba($yellow, 0.5)};
+    --yellow-t: #{rgba($yellow, 0.2)};
+    --dark-s: #{rgba($dark, 0.7)};
+    --dark-f: #{rgba($dark, 0.5)};
+    --dark-t: #{rgba($dark, 0.2)};
+    --light-s: #{rgba($light, 0.7)};
+    --light-f: #{rgba($light, 0.5)};
+    --light-t: #{rgba($light, 0.2)};
+}
+
+$theme-colors: ("primary": $pink,
+    "secondary": $green,
+    "dark": $dark,
+    "light": $light,
+    "info": $yellow);
+$display-font: 'Cormorant Garamond',
+serif;
+$font: 'Lato',
+sans-serif;
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+* {
+    font-family: $font;
+}
+
+.display- {
+
+    &1,
+    &2,
+    &3,
+    &4 {
+        font-family: $display-font;
+    }
+}
+
+.navbar-brand {
+    font-family: $display-font;
+}
+
+.garamond {
+    font-family: $display-font;
+}
