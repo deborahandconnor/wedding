@@ -1,11 +1,11 @@
 @charset "UTF-8";
 @font-face {
   font-family: "Cormorant Garamond";
-  src: url("/CormorantGaramond-LightItalic.ttf") format("truetype");
+  src: url("/connoranddeborah/CormorantGaramond-LightItalic.ttf") format("truetype");
 }
 @font-face {
   font-family: "Lato";
-  src: url("/Lato-Regular.ttf") format("truetype");
+  src: url("/connoranddeborah/Lato-Regular.ttf") format("truetype");
 }
 :root {
   --pink: #F2D5DB;
@@ -9910,6 +9910,15 @@ h3 {
   font-family: "Lato", sans-serif;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Cormorant Garamond", serif;
+}
+
 .display-1, .display-2, .display-3, .display-4 {
   font-family: "Cormorant Garamond", serif;
 }
@@ -9920,4 +9929,8 @@ h3 {
 
 .garamond {
   font-family: "Cormorant Garamond", serif;
+}
+
+* {
+  transition: background 0.5s;
 }

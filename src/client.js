@@ -3,5 +3,5 @@ import './styles.scss';
 import './store'
 
 sapper.start({
-	target: document.querySelector('#sapper')
+	target: document.querySelector('#sapper'),
 });

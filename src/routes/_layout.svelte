@@ -4,11 +4,12 @@
 	export let segment;
 </script>
 
-<!-- <Nav {segment} /> -->
 
-<main class="bg-dark">
+<main>
 	<slot></slot>
 </main>
+
+<Nav {segment} />
 
 <style lang="scss" global>
 	@import "../styles.scss";

@@ -10,14 +10,15 @@
         Deborah Hong & Connor Low
     </h1>
     <small class="display-4 d-flex justify-content-center align-baseline">
-        August 8th, 2020 <span class="mx-4">♥</span> {days} days to go.
+        August 8th, 2020 <span class="mx-4">&hearts;</span> {days} days to go.
     </small>
 </section>
 
 <style>
     section {
         height: 100vh;
-        background-image: linear-gradient(160deg, transparent, var(--dark-s), transparent), url("/images/B.jpg");
+        background-image: linear-gradient(195deg, transparent, var(--dark-s), transparent),
+            url("/connoranddeborah/images/B.jpg");
         background-position: center;
         background-size: cover;
         padding: 64px 16px;
