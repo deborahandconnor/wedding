@@ -9930,3 +9930,7 @@ h6 {
 .garamond {
   font-family: "Cormorant Garamond", serif;
 }
+
+* {
+  transition: background 0.5s;
+}
