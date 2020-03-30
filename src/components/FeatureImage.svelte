@@ -17,8 +17,8 @@
 <style>
     section {
         height: 100vh;
-        background-image: linear-gradient(195deg, transparent, var(--dark-s), transparent),
-            url("/connoranddeborah/images/B.jpg");
+        background-image: linear-gradient(180deg, transparent, var(--dark-s), transparent),
+            url("/deborahandconnor/images/0.jpg");
         background-position: center;
         background-size: cover;
         padding: 64px 16px;

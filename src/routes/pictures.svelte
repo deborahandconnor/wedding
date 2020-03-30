@@ -1,18 +1,14 @@
 <script>
     import PageTitle from '../components/PageTitle.svelte';
     import { createUrl } from '../utils';
-    const images = [
-        createUrl('1.jpg'),
-        createUrl('10.jpg'),
-        createUrl('26.jpg'),
-        createUrl('34.jpg'),
-        createUrl('42.jpg'),
-        createUrl('63.jpg'),
-        createUrl('69.jpg'),
-        createUrl('70.jpg'),
-        createUrl('73.jpg'),
-        createUrl('78.jpg')
-    ];
+    const images = (() => {
+        const result = [];
+        let i = 1;
+        do {
+            result.push(createUrl(`${i}.jpg`));
+        } while (i++ < 10);
+        return result;
+    })()
 </script>
 
 

@@ -1,6 +1,6 @@
 npm run export
-Copy-Item -Path .\__sapper__\export\connoranddeborah\* -Destination ..\_ghp\connoranddeborah -Recurse -Force
-Set-Location ..\_ghp\connoranddeborah
+Copy-Item -Path .\__sapper__\export\deborahandconnor\* -Destination ..\_ghp\deborahandconnor -Recurse -Force
+Set-Location ..\_ghp\deborahandconnor
 git add .
 git commit -m "script-deploy"
 git push
