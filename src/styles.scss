@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Cormorant Garamond';
-    src: url('//CormorantGaramond-LightItalic.ttf') format("truetype");
+    src: url('/deborahandconnor/CormorantGaramond-LightItalic.ttf') format("truetype");
 }
 
 @font-face {
@@ -82,4 +82,8 @@ h6 {
 
 * {
     transition: background 0.5s;
+}
+
+.btn, .form-control {
+    border-radius: 3px!important;
 }

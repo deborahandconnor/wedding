@@ -11,3 +11,9 @@
         {title}
     </h1>
 {/if}
+
+<style>
+    h1 {
+        padding: 32px 0 64px;
+    }
+</style>
