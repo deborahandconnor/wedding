@@ -1,11 +1,11 @@
 @charset "UTF-8";
 @font-face {
   font-family: "Cormorant Garamond";
-  src: url("/deborahandconnor/CormorantGaramond-LightItalic.ttf") format("truetype");
+  src: url("/wedding/CormorantGaramond-LightItalic.ttf") format("truetype");
 }
 @font-face {
   font-family: "Lato";
-  src: url("/deborahandconnor/Lato-Regular.ttf") format("truetype");
+  src: url("/wedding/Lato-Regular.ttf") format("truetype");
 }
 :root {
   --pink: #F2D5DB;
