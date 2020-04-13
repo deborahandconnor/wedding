@@ -1,8 +1,8 @@
 {
-	"background_color": "#ffffff",
-	"theme_color": "#333333",
-	"name": "TODO",
-	"short_name": "TODO",
+	"background_color": "#262626",
+	"theme_color": "#F2D5DB",
+	"name": "deborah-and-connor",
+	"short_name": "cd-2020",
 	"display": "minimal-ui",
 	"start_url": "/",
 	"icons": [
