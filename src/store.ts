@@ -61,7 +61,6 @@ export const form = (() => {
     }
 })();
 
-
 interface RSVP {
     name: string
     party: string[]
