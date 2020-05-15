@@ -4,7 +4,7 @@
     import { faSquare, faHeart, faHeartBroken } from '@fortawesome/free-solid-svg-icons'
     import { onEnter } from '../utils.ts'
 
-    const uri = 'http://deborahandconnorapi.herokuapp.com';
+    const uri = 'https://deborahandconnorapi.herokuapp.com';
     let name = '', response = { group: [], message: '' }, fetching = false, done = false;
     $: guests = response.group.length;
     $: partyFound = response.group.length > 0;

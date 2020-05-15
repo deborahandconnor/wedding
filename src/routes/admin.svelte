@@ -1,6 +1,6 @@
 <script>
     import PageTitle from '../components/PageTitle.svelte';
-    const uri = 'http://deborahandconnorapi.herokuapp.com';
+    const uri = 'https://deborahandconnorapi.herokuapp.com';
     let secret = '';
     let results = null;
     $: authenticated = !!results && Array.isArray(results);
