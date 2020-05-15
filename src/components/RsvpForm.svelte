@@ -7,10 +7,11 @@
     const uri = location.hostname === 'localhost'
         ? 'http://deborahandconnordev.herokuapp.com'
         : 'http://weddingapi.herokuapp.com';
-    let name = 'carson low', response = { group: [], message: '' }, fetching = false;
+    let name = 'carson low', response = { group: [], message: '' }, fetching = false, done = false;
     $: guests = response.group.length;
     $: partyFound = response.group.length > 0;
     $: showError = response.message.length > 0;
+    $: canSubmit = response.group.every(i => !!i.response)
 
     // Methods
     const findInvitation = async () => {
@@ -32,13 +33,29 @@
     }
 
     const respond = async () => {
-        const [first, last] = name.split(' ')
-        const res = await fetch(`${uri}/guests/find?first=${names[0]}&last=${names[1]}`)
-        const json = await res.json();
-        state = states.SEARCHING_PARTY;
-        console.log('responded:', json);
-        party = ['', '', ''];
-        state = states.PARTY;
+        const mapNames = i => `${i.first} ${i.last}`;
+        const body = JSON.stringify({
+            responder: name,
+            accept: response.group
+                .filter(i => i.response === 'accepts')
+                .map(mapNames),
+            decline: response.group
+                .filter(i => i.response === 'declines')
+                .map(mapNames)
+        })
+        console.log('body:', body)
+        return;
+        const res = fetch(`${url}/rsvp`, {
+            method: 'POST',
+            body
+        });
+        fetching = true;
+        const json = await res;
+        console.log(json);
+        if (json === 'OK') {
+            done = true;
+        }
+        fetching = false;
     };
 
     $: declines = i => () => {
@@ -59,6 +76,13 @@
     }
 </script>
 
+{#if done}
+<article>
+    <h2 class="h4">
+        Thank you.
+    </h2>
+</article>
+{:else}
 <article>
     <h2 class="h4">
         Please, tell us your <b>first and last name</b> so we can find your invitation.
@@ -83,7 +107,7 @@
                 {#if !guest.first && !guest.last}
                     <input type="text" class="form-control" bind:value={guest.name}>
                 {:else}
-                    <div class="mb-2">
+                    <div class="mb-2" class:fetching>
                         <div class="font-weight-bold">
                             {guest.first} {guest.last}
                         </div>
@@ -105,7 +129,7 @@
         {/each}
         <div class="col mt-2">
             <hr>
-            <button class="btn btn-secondary btn-lg" on:click={respond}>Send</button>
+            <button class="btn btn-secondary btn-lg" on:click={respond} disabled={!canSubmit}>Send</button>
         </div>
     {:else if showError}
         <div class="alert alert-warning" transition:fade>
@@ -113,6 +137,7 @@
         </div>
     {/if}
 </article>
+{/if}
 
 <style>
     section {
@@ -125,5 +150,9 @@
 
     .spread button {
         margin-right: 8px;
+    }
+
+    .fetching {
+        opacity: 0.6;
     }
 </style>
