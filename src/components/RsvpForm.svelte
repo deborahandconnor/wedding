@@ -4,10 +4,8 @@
     import { faSquare, faHeart, faHeartBroken } from '@fortawesome/free-solid-svg-icons'
     import { onEnter } from '../utils.ts'
 
-    const uri = location.hostname === 'localhost'
-        ? 'http://deborahandconnordev.herokuapp.com'
-        : 'http://weddingapi.herokuapp.com';
-    let name = 'carson low', response = { group: [], message: '' }, fetching = false, done = false;
+    const uri = 'http://deborahandconnorapi.herokuapp.com';
+    let name = '', response = { group: [], message: '' }, fetching = false, done = false;
     $: guests = response.group.length;
     $: partyFound = response.group.length > 0;
     $: showError = response.message.length > 0;
@@ -45,7 +43,7 @@
         })
         console.log('body:', body)
         return;
-        const res = fetch(`${url}/rsvp`, {
+        const res = fetch(`${uri}/rsvp`, {
             method: 'POST',
             body
         });

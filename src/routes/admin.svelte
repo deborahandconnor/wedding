@@ -1,12 +1,13 @@
 <script>
     import PageTitle from '../components/PageTitle.svelte';
+    const uri = 'http://deborahandconnorapi.herokuapp.com';
     let secret = '';
     let results = null;
     $: authenticated = !!results && Array.isArray(results);
     $: acceptCount = (results || []).reduce((acc, i) => acc + i.accept.length, 0);
     $: declineCount = (results || []).reduce((acc, i) => acc + i.decline.length, 0);
 
-    const authenticate = async () => results = await fetch(`${url}/rsvp`);
+    const authenticate = async () => results = await fetch(`${uri}/rsvp`);
 </script>
 
 <article class="vh-100 bg-light">
