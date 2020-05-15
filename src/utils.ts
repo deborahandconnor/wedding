@@ -5,3 +5,9 @@ export const countdown = (unit: 'days' | 'hours' | 'minutes') => moment(WEDDING_
     .diff(moment(), unit);
 
 export const createUrl = (res: string) => `/wedding/images/${res}`.replace(/[/\\]+/g, '/');
+
+export const onEnter = (fn: Function) => ({ code }: KeyboardEvent) => {
+    if(code === 'Enter') {
+        fn();
+    }
+}
