@@ -4,10 +4,14 @@
     let secret = '';
     let results = null;
     $: authenticated = !!results && Array.isArray(results);
-    $: acceptCount = (results || []).reduce((acc, i) => acc + i.accept.length, 0);
-    $: declineCount = (results || []).reduce((acc, i) => acc + i.decline.length, 0);
+    $: acceptCount = authenticated && (results || []).reduce((acc, i) => acc + i.accept.length, 0);
+    $: declineCount = authenticated && (results || []).reduce((acc, i) => acc + i.decline.length, 0);
 
-    const authenticate = async () => results = await fetch(`${uri}/rsvp`);
+    const authenticate = async () => results = await (
+        await fetch(`${uri}/rsvp?secret=${secret}`)
+    ).json();
+    $: console.log(results);
+    console.log('v1.1.0');
 </script>
 
 <article class="vh-100 bg-light">
@@ -26,20 +30,18 @@
                             <th scope="col">Respondent</th>
                             <th scope="col">Accepted</th>
                             <th scope="col">Declined</th>
-                            <th scope="col">Date</th>
                         </tr>
                         {#each results as rsvp, i}
                             <tr>
-                                <th scope="row">{rsvp.respondent}</th>
+                                <th scope="row">{rsvp.responder}</th>
                                 <td>{rsvp.accept.join(', ')}</td>
                                 <td>{rsvp.decline.join(', ')}</td>
-                                <td>{rsvp.date}</td>
                             </tr>
                         {/each}
                     </table>
                 {:else}
                     <div class="form-group">
-                        <input class="form-control" bind:value={secret} />
+                        <input class="form-control" bind:value={secret} type="password" />
                     </div>
                     <button on:click={authenticate} class="btn btn-dark">
                         Submit

@@ -6,7 +6,7 @@
         let i = 1;
         do {
             result.push(createUrl(`${i}.jpg`));
-        } while (i++ < 10);
+        } while (i++ < 14);
         return result;
     })()
 </script>

@@ -42,13 +42,15 @@
                 .map(mapNames)
         })
         console.log('body:', body)
-        return;
         const res = fetch(`${uri}/rsvp`, {
             method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
             body
         });
         fetching = true;
-        const json = await res;
+        const json = await (await res).text();
         console.log(json);
         if (json === 'OK') {
             done = true;
@@ -72,13 +74,29 @@
             group
         }
     }
+
+    const updateGuest = i => {
+        const guest = response.group[i];
+        return ({ target: { value } }) => {
+            const [first, last] = value
+                .trim()
+                .split(' ');
+            response.group[i] = {
+                ...guest,
+                first,
+                last,
+                plusOne: true
+            };
+        }
+    }
 </script>
 
 {#if done}
-<article>
+<article class="text-center">
     <h2 class="h4">
-        Thank you.
+        Thank you. 
     </h2>
+    <p>Your RSVP has been sent.</p>
 </article>
 {:else}
 <article>
@@ -92,7 +110,13 @@
                     on:keydown={onEnter(findInvitation)}>
             </div>
             <div class="col-auto">
-                <button class="btn btn-secondary btn-lg" on:click={findInvitation}>Continue</button>
+                <button class="btn btn-secondary btn-lg" disabled={fetching} on:click={findInvitation}>
+                    {
+                        fetching && !partyFound
+                        ? 'Looking...'
+                        : 'Continue'
+                    }
+                </button>
             </div>
         </div>
     </section>
@@ -102,32 +126,41 @@
         </h2>
         {#each response.group as guest, i}
             <div class="input-group input-group-lg mb-2 col-12">
-                {#if !guest.first && !guest.last}
-                    <input type="text" class="form-control" bind:value={guest.name}>
-                {:else}
-                    <div class="mb-2" class:fetching>
+                <div class="mb-2" class:fetching>
+                    {#if guest.plusOne || (!guest.first && !guest.last)}
+                        <div class="mb-1">
+                            <input type="text" class="form-control" bind:value={guest.name} 
+                            on:change={updateGuest(i)} placeholder="Guest">
+                        </div>
+                    {:else}
                         <div class="font-weight-bold">
                             {guest.first} {guest.last}
                         </div>
-                        <div class="d-flex spread">
-                            <button class="btn btn-sm" class:btn-success={guest.response === 'accepts'} on:click={accepts(i)}>
-                                <Fa icon="{ guest.response === 'accepts' ? faHeart : faSquare }" />
-                                {' '}
-                                <span>Joyfully accepts</span>
-                            </button>
-                            <button class="btn btn-sm" class:btn-danger={guest.response === 'declines'} on:click={declines(i)}>
-                                <Fa icon="{ guest.response === 'declines' ? faHeartBroken : faSquare }" />
-                                {' '}
-                                <span>Regretfully declines</span>
-                            </button>
-                        </div>
+                    {/if}
+                    <div class="d-flex spread">
+                        <button class="btn btn-sm" class:btn-success={guest.response === 'accepts'} on:click={accepts(i)}>
+                            <Fa icon="{ guest.response === 'accepts' ? faHeart : faSquare }" />
+                            {' '}
+                            <span>Joyfully accepts</span>
+                        </button>
+                        <button class="btn btn-sm" class:btn-danger={guest.response === 'declines'} on:click={declines(i)}>
+                            <Fa icon="{ guest.response === 'declines' ? faHeartBroken : faSquare }" />
+                            {' '}
+                            <span>Regretfully declines</span>
+                        </button>
                     </div>
-                {/if}
+                </div>
             </div>
         {/each}
         <div class="col mt-2">
             <hr>
-            <button class="btn btn-secondary btn-lg" on:click={respond} disabled={!canSubmit}>Send</button>
+            <button class="btn btn-secondary btn-lg" on:click={respond} disabled={!canSubmit || fetching}>
+                {
+                    fetching
+                    ? 'Sending...'
+                    : 'Send'
+                }
+            </button>
         </div>
     {:else if showError}
         <div class="alert alert-warning" transition:fade>
@@ -153,4 +186,5 @@
     .fetching {
         opacity: 0.6;
     }
+
 </style>

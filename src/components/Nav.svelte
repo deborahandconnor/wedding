@@ -20,6 +20,7 @@
 	}
 </style>
 
+<a href="/wedding/admin" class="d-none">secrets</a>
 <nav class="d-flex w-100 justify-content-center navbar">
 	<ul class="list-group list-group-horizontal">
 		{#each $pages as page}
