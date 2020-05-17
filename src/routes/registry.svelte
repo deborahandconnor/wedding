@@ -3,7 +3,7 @@
 </script>
 
 <article class="vh-100 bg-secondary">
-    <PageTitle title="Registry" />
+    <PageTitle title="Gift Registry" />
     <section class="container">
         <div class="row">
             <div class="col-12">
