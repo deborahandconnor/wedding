@@ -13,7 +13,7 @@
     const authenticate = async () => results = await (
         await fetch(`${uri}/rsvp?secret=${secret}`)
     ).json();
-    console.log('v1.1.0');
+    console.log('v1.1.1');
 </script>
 
 <article class="vh-100 bg-light">
