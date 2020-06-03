@@ -21,36 +21,43 @@
                             <h4>Low</h4>
                         </div>
                     </div>
-                    <div>
-                        <div>joyfully invite you to the wedding of their children,</div>
-                    </div>
+                    <div class="mb-3">joyfully invite you to the wedding of their children,</div>
                     <div class="d-flex justify-content-center align-items-center">
                         <div class="name">
-                            <h2>Deborah</h2>
+                            <h2 class="h1">Deborah</h2>
                             <div>Youn-Joo Hong</div>
                         </div>
                         <h2 class="mx-4">
                             &
                         </h2>
                         <div class="name">
-                            <h2>Connor</h2>
+                            <h2 class="h1">Connor</h2>
                             <div>James Low</div>
                         </div>
                     </div>
                 </div>
-                <hr>
+                <div>
+                    <hr>
+                </div>
                 <div>Saturday, August 8th, 2020 | 7:00PM</div>
                 <div>Ceremony at Christ’s Church Federal Way</div>
                 <div>941 S Dash Point Rd</div>
                 <div>Federal Way, WA 98003</div>
                 <div>Dessert reception to follow</div>
-                <div>Kindly RSVP by July 13th</div>
+                <div>
+                    <hr>
+                </div>
+                <div>Kindly <a href="rsvp">RSVP</a> by July 13th</div>
             </div>
         </div>
     </div>
 </article>
 
 <style>
+    div {
+        font-size: 20px
+    }
+
     .container {
         max-width: 640px;
     }
@@ -83,6 +90,14 @@
     }
 
     article {
-        overflow: auto
+        overflow: auto;
+    }
+
+    hr {
+        width: 50%
+    }
+
+    a {
+        color: var(--dark)
     }
 </style>

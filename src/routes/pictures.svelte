@@ -12,7 +12,7 @@
 </script>
 
 
-<article class="overflow-auto py-2 bg-dark text-light">
+<article class="overflow-auto bg-dark text-light">
     <PageTitle title="Photos" />
     <section class="container">
         <div class="row">
@@ -28,6 +28,7 @@
 <style>
     article {
         max-height: 100vh;
+        overflow: auto;
     }
 
 </style>

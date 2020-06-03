@@ -78,12 +78,22 @@ h6 {
 
 .garamond {
     font-family: $display-font;
+
+    p {
+        font-family: $display-font;
+    }
 }
 
 * {
     transition: background 0.5s;
 }
 
-.btn, .form-control {
-    border-radius: 3px!important;
+.btn,
+.form-control {
+    border-radius: 3px !important;
+}
+
+main article {
+    padding-bottom: 64px;
+    overflow: auto;
 }

@@ -1,4 +1,5 @@
 <script>
+	import { createUrl } from '../utils';
 	import PageTitle from '../components/PageTitle.svelte';
 </script>
 
@@ -6,34 +7,39 @@
 	<PageTitle title="Our Story" />
 	<section class="container">
 		<div class="row">
-			<div class="col">
+			<div class="col garamond">
 				<p>
-					I threw a wish in the well <br>
-					Don't ask me I'll never tell <br>
-					I looked at you as it fell <br>
-					And now you're in my way <br>
-					I'd trade my soul for a wish <br>
-					Pennies and dimes for a kiss <br>
-					I wasn't looking for this <br>
-					But now you're in my way <br>
+					We met in highschool through our youth group at Christ's Church, Federal Way. We first expressed our
+					feelings for the other during college and began dating immediately after graduation, May, 2019.
 				</p>
+				<img src="{createUrl('story/dating.jpg')}" alt="" class="img-fluid card">
 				<p>
-					Your stare was holding <br>
-					Ripped jeans, skin was showin' <br>
-					Hot night, wind was blowin' <br>
-					Where you think you're going baby? <br>
+					During his senior year, Connor regularly sent letters to Deborah, telling the story of their
+					friendship. After we both graduated, Connor continued to write these letters, culminating in a
+					proposal letter on December 12th, 2019. Deborah said yes!
 				</p>
+				<img src="{createUrl('story/proposal.jpg')}" alt="The proposal" class="img-fluid card">
 				<p>
-					Hey, I just met you and this is crazy <br>
-					But here's my number, so call me maybe <br>
-					It's hard to look right at you baby <br>
-					But here's my number, so call me maybe <br>
-					Hey I just met you and this is crazy <br>
-					But here's my number, so call me maybe <br>
-					And all the other boys try to chase me <br>
-					But here's my number, so call me maybe. <br>
+					We chose Christ's Church as our wedding destination because it has played a central role in our
+					relationship. We have enjoyed serving together in youth ministry, worship, and most recently,
+					pre-school. We enjoy walking together, pranking our friends, and attempting to cook. Most of all, we
+					love our God and love to share all He is doing in our lives.
 				</p>
 			</div>
 		</div>
 	</section>
 </article>
+
+<style>
+	article {
+		overflow: auto;
+	}
+
+	.container {
+		max-width: 640px;
+	}
+
+	p {
+		font-size: 20px;
+	}
+</style>
