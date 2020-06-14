@@ -9,6 +9,10 @@
 		console.log('toggle')
 		collapse = !collapse;
 	}
+
+	fetch('https://deborahandconnorapi.herokuapp.com/')
+		.then(j => j.json())
+		.then(console.log);
 </script>
 
 <a href="/wedding/admin" class="d-none">secrets</a>
